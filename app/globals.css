@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #003566;
+  --color-secondary: #014f86;
+  --color-accent: #224870;
+  --color-background: #001220; /* Azul Marinho Profundo */
+}
+
+:root {
+  background-color: #001220;
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #001220;
+}
+
+body {
+  background-color: var(--color-background);
+  color: white;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Grid visível e elegante (Azul sobre Azul Escuro) */
+.tech-grid {
+  background-image: 
+    linear-gradient(rgba(1, 79, 134, 0.2) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(1, 79, 134, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
