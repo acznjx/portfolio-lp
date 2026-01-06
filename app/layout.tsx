@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: "DevCore | Fullstack Engineer",
-  description: "Especialista em interfaces de alta performance e arquitetura de software.",
+  title: "Landing Pages / Desenvolvedor Frontend",
+  description: "Desenvolvimento de interfaces exclusivas e landing pages de alta performance.",
 };
 
 export default function RootLayout({
