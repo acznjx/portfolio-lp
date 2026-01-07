@@ -63,7 +63,7 @@ export default function Contact() {
             </button>
             
             <p className="text-white/10 text-[9px] font-mono uppercase tracking-[0.5em] pt-8">
-              © 2026 // ACZNJX — UI Specialist
+              © 2026 // Desenvolvido por Ana Carolina
             </p>
           </div>
         </motion.div>

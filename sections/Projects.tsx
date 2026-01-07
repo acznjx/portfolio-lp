@@ -4,6 +4,13 @@ import { FaArrowRight } from "react-icons/fa";
 
 const projects = [
   {
+    title: "Crochê Studio",
+    status: "Projeto Ativo",
+    description: "Landing page artesanal com estética minimalista, focada em experiência do usuário e conversão para ateliês.",
+    tech: ["Next.js", "Tailwind", "Framer Motion"],
+    link: "https://croche-website.vercel.app/",
+  },
+  {
     title: "TorkMotos",
     status: "Projeto Ativo",
     description: "Interface de alta performance com foco em estética minimalista e navegação fluida.",
@@ -38,6 +45,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
               className="group relative bg-white/[0.02] border border-white/5 rounded-2xl p-8 md:p-12 transition-all duration-500 hover:border-secondary/30"
             >
               <div className="relative z-10 flex flex-col h-full">
@@ -75,6 +83,7 @@ export default function Projects() {
                 <a 
                   href={project.link} 
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-10 inline-flex items-center gap-2 text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] group-hover:text-white group-hover:gap-4 transition-all"
                 >
                   Visualizar Interface <FaArrowRight size={10} className="text-secondary" />
