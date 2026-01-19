@@ -2,94 +2,104 @@
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
-const projects = [
+const projetos = [
   {
-    title: "Crochê Studio",
+    titulo: "Crochê Studio",
     status: "Projeto Ativo",
-    description: "Landing page artesanal com estética minimalista, focada em experiência do usuário e conversão para ateliês.",
+    descricao: "Landing page artesanal com estética minimalista, focada em experiência do usuário e conversão para ateliês.",
     tech: ["Next.js", "Tailwind", "Framer Motion"],
     link: "https://croche-website.vercel.app/",
   },
   {
-    title: "TorkMotos",
+    titulo: "TorkMotos",
     status: "Projeto Ativo",
-    description: "Interface de alta performance com foco em estética minimalista e navegação fluida.",
+    descricao: "Interface de alta performance com foco em estética minimalista e navegação fluida.",
     tech: ["Next.js", "Tailwind", "Motion"],
     link: "https://torkmotos.vercel.app/",
   }
 ];
 
-export default function Projects() {
+export default function Projetos() {
   return (
-    <section id="projetos" className="relative py-32 bg-[#001220] px-6 overflow-hidden">
+    <section 
+      id="projetos" 
+      // min-h-screen e flex-col justify-center garantem que fique igual ao Contato
+      className="relative min-h-screen w-full py-24 md:py-40 bg-[#01161e] px-6 overflow-hidden flex flex-col justify-center"
+    >
       
-      {/* BACKGROUND ELEMENTS */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-[#014f86]/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#001220] to-transparent z-20 pointer-events-none" />
+      {/* 1. FUNDO IGUAL AO CONTATO: Luz radial idêntica para eliminar linhas de divisão */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#59839210,transparent_70%)] pointer-events-none z-0" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 w-full">
         
-        {/* SECTION HEADER */}
-        <div className="flex flex-col mb-20 border-l-4 border-secondary pl-6">
-          <span className="text-secondary text-xs font-bold uppercase tracking-[0.4em] mb-2">Trabalhos</span>
-          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight uppercase italic">
-            Projetos <span className="text-secondary/80 not-italic">Ativos</span>
-          </h2>
-        </div>
+        <header className="mb-20 md:mb-28">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-[#aec3b0] text-[10px] font-bold uppercase tracking-[0.6em] mb-4 block">
+              Portfólio
+            </span>
+            <h2 className="text-4xl md:text-7xl font-black text-[#eff6e0] tracking-tighter uppercase italic">
+              Projetos <span className="text-[#598392] not-italic font-light uppercase">Ativos</span>
+            </h2>
+          </motion.div>
+        </header>
 
-        {/* PROJECTS GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          {projetos.map((projeto, index) => (
+            <motion.article 
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative bg-white/[0.02] border border-white/5 rounded-2xl p-8 md:p-12 transition-all duration-500 hover:border-secondary/30"
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              // Designer dos cards mantendo a paleta de cores
+              className="group relative bg-[#598392]/5 border border-[#598392]/10 rounded-[32px] p-8 md:p-12 transition-all duration-500 hover:border-[#aec3b0]/30 hover:bg-[#598392]/10 shadow-2xl shadow-black/20"
             >
               <div className="relative z-10 flex flex-col h-full">
-                
-                {/* STATUS INDICATOR */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#25D366]"></span>
-                  </div>
-                  <span className="text-[#25D366] text-[10px] font-bold uppercase tracking-widest italic">
-                    {project.status}
+                <div className="flex items-center gap-2 mb-8 bg-[#01161e] w-fit px-3 py-1.5 rounded-full border border-[#598392]/20">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <span className="text-[#eff6e0] text-[9px] font-bold uppercase tracking-widest italic">
+                    {projeto.status}
                   </span>
                 </div>
 
-                {/* CONTENT */}
-                <h3 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tighter uppercase italic leading-none group-hover:text-secondary transition-colors">
-                  {project.title}
+                <h3 className="text-3xl md:text-4xl font-black text-[#eff6e0] mb-6 tracking-tighter uppercase italic group-hover:text-[#aec3b0] transition-colors">
+                  {projeto.titulo}
                 </h3>
 
-                <p className="text-white/40 text-base mb-10 leading-relaxed max-w-sm">
-                  {project.description}
+                <p className="text-[#aec3b0]/60 text-sm md:text-base mb-10 leading-relaxed font-light max-w-sm">
+                  {projeto.descricao}
                 </p>
 
-                {/* TECH STACK */}
-                <div className="flex flex-wrap gap-4 mt-auto pt-8 border-t border-white/5">
-                  {project.tech.map((t) => (
-                    <span key={t} className="text-[9px] font-mono text-white/20 uppercase tracking-tighter">
-                      #{t}
-                    </span>
-                  ))}
-                </div>
+                <div className="mt-auto pt-8 border-t border-[#598392]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                  <div className="flex flex-wrap gap-4">
+                    {projeto.tech.map((t) => (
+                      <span key={t} className="text-[9px] font-medium text-[#598392] uppercase tracking-widest">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-                {/* ACTION LINK */}
-                <a 
-                  href={project.link} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-10 inline-flex items-center gap-2 text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] group-hover:text-white group-hover:gap-4 transition-all"
-                >
-                  Visualizar Interface <FaArrowRight size={10} className="text-secondary" />
-                </a>
+                  <a 
+                    href={projeto.link} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 text-[#eff6e0] text-[10px] font-black uppercase tracking-[0.3em] group/link"
+                  >
+                    Ver Projeto 
+                    <div className="w-8 h-8 rounded-full border border-[#598392]/30 flex items-center justify-center group-hover/link:bg-[#eff6e0] group-hover/link:text-[#01161e] transition-all">
+                      <FaArrowRight size={10} />
+                    </div>
+                  </a>
+                </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

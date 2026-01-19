@@ -1,33 +1,52 @@
 @import "tailwindcss";
 
 @theme {
+  /* Padronização da paleta mineral */
   --color-primary: #003566;
   --color-secondary: #014f86;
   --color-accent: #224870;
-  --color-background: #001220; /* Azul Marinho Profundo */
+  --color-background: #01161e; /* Cor exata usada nos componentes */
+  --color-text-creme: #eff6e0;
+  --color-text-oliva: #aec3b0;
+  --color-mineral: #598392;
 }
 
 :root {
-  background-color: #001220;
+  /* Garante que o fundo do navegador seja idêntico ao das seções */
+  background-color: #01161e;
   color: white;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #001220;
+  /* Remove qualquer espaço ou cor residual no topo/fim */
+  background-color: #01161e;
 }
 
 body {
-  background-color: var(--color-background);
+  background-color: #01161e;
   color: white;
   margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
+  /* Melhora a renderização em fundos escuros */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Grid visível e elegante (Azul sobre Azul Escuro) */
+/* REMOÇÃO DE LINHAS: 
+   Este utilitário garante que as seções se encostem sem gaps.
+*/
+section {
+  border: none !important;
+  outline: none !important;
+  margin-top: -1px; /* Sobreposição mínima para evitar vazamento de pixels */
+}
+
+/* Grid visível e elegante atualizado para a nova cor base */
 .tech-grid {
   background-image: 
-    linear-gradient(rgba(1, 79, 134, 0.2) 1px, transparent 1px), 
-    linear-gradient(90deg, rgba(1, 79, 134, 0.2) 1px, transparent 1px);
+    linear-gradient(rgba(174, 195, 176, 0.03) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(174, 195, 176, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
 }
